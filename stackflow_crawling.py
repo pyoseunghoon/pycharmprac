@@ -16,10 +16,10 @@ soup = BeautifulSoup(data.text, 'html.parser')
 # select_one 하나만 찾아옴  // select 모두 다 찾아옴(리스트형태)
 question = soup.select('#questions > .question-summary > .summary > h3 > a')
 print(question[0])
-for qu in question:
+for index, qu in enumerate(question):
     hr_link = 'https://stackoverflow.com/'+qu['href']
     python_text = qu.text
-    print(hr_link,'\n',python_text)
+    print(str(index + 1)+ ':' + python_text + '\n' + hr_link)
     print('\n')
 
 
